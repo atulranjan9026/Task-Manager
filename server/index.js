@@ -15,10 +15,21 @@ const app = express();
 // app.use(cors());
 app.use(express.json());
 
-app.use(cors({
-  origin: 'http://localhost:3000', // Replace with your frontend's URL
-  credentials: true, // If you're sending cookies or authentication headers
-}));
+const corsOptions = {
+  origin: 'http://localhost:3000', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Include OPTIONS method
+allowedHeaders: ['Content-Type', 'Authorization'],
+allowedHeaders: ['Content-Type', 'Authorization'],
+credentials: true, // If you need to support credentials (like cookies)
+optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+app.use(cors(corsOptions));
+
+// app.use(cors({
+//   origin: 'http://localhost:3000', // Replace with your frontend's URL
+//   credentials: true, // If you're sending cookies or authentication headers
+// }));
 // Routes
 app.get('/', (req, res) => {
     res.send('MERN Task Manager API');
