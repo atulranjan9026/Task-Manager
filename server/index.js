@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: 'http://localhost:3000', 
+  origin: 'https://task-manager-ulta.onrender.com', 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Include OPTIONS method
 allowedHeaders: ['Content-Type', 'Authorization'],
 allowedHeaders: ['Content-Type', 'Authorization'],
