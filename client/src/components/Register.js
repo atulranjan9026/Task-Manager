@@ -24,7 +24,7 @@ const Register = () => {
   const onSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await api.post('/auth/register', formData);
+      const res = await api.post('/api/auth/register', formData);
       login(res.data.token);
       navigate('/login');
     } catch(err) {

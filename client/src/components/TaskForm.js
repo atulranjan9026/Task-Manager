@@ -1,6 +1,6 @@
 // src/components/TaskForm.js
 import React, { useState, useContext, useEffect } from 'react';
-import axios from 'axios';
+import api from '../utils/api';
 import AuthContext from '../context/AuthContext';
 
 const TaskForm = ({ onTaskCreated }) => {
@@ -23,7 +23,7 @@ const TaskForm = ({ onTaskCreated }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get('/api/users', {
+        const res = await api.get('/users', {
           headers: { 'Authorization': `Bearer ${auth.token}` },
         });
         setUsers(res.data);
@@ -49,7 +49,7 @@ const TaskForm = ({ onTaskCreated }) => {
         delete dataToSend.assignedUser; // Remove assignedUser if not selected
       }
 
-      await axios.post('/api/tasks', dataToSend, {
+      await api.post('/tasks', dataToSend, {
         headers: { 'Authorization': `Bearer ${auth.token}` },
       });
       setFormData({
