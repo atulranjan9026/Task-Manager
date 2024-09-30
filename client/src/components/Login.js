@@ -1,6 +1,6 @@
 // src/components/Login.js
 import React, { useState, useContext } from 'react';
-import axios from 'axios';
+import api from '../utils/api';
 import AuthContext from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ const Login = () => {
   const onSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/auth/login', formData);
+      const res = await api.post('/auth/login', formData);
       login(res.data.token);
       navigate('/');
     } catch(err) {
