@@ -18,8 +18,7 @@ export const AuthProvider = ({ children }) => {
       if (auth.token) {
         try {
           // Fetch user data from backend
-          const response = await api.get('https://task-manager-ulta.onrender.com/api/auth/user', {
-            
+          const response = await api.get('https://task-manager-backend-0kn7.onrender.com/api/auth/user', {
             headers: {
               'Authorization': `Bearer ${auth.token}`
             }
