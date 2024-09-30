@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Create an Axios instance
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000/api', // Fallback to localhost:5000/api
+  baseURL: process.env.REACT_APP_API_BASE_URL 
 });
 
 // Request interceptor to add the token to headers
